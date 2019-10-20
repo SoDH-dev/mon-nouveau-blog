@@ -3,21 +3,17 @@
         <title>Django Girls le blog de Sonia</title>
     </head>
     <body>
+		
         <div>
             <h1><a href="/">Django Girls le Magnifique Blog de Sonia</a></h1>
         </div>
 
-        <div>
-            <p>published: 19.10.2019</p>
-            <h2><a href="">Mon 1er post d'essai</a></h2>
-            <p>Je vais pouvoir y raconter pleins de choses.</p>
-        </div>
-
-        <div>
-            <p>published: 20.10.2019</p>
-            <h2><a href="">Mon 2ème post</a></h2>
-            <p>Dans cet autre post je vous laisserai parler peut être.</p>
-
-   </div>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
     </body>
 </html>
